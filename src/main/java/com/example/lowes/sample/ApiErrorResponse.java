@@ -10,5 +10,5 @@ import java.time.OffsetDateTime;
 public class ApiErrorResponse {
     private String errorMessage;
     private String context;
-    private OffsetDateTime offsetDateTime;
+    private OffsetDateTime timestamp;
 }

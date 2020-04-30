@@ -2,23 +2,23 @@ package com.example.lowes.sample;
 
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
+import java.util.UUID;
 
 @Data
-@NoArgsConstructor
-@Entity
+@Entity(name = "user")
 public class User {
 
     @Id
-    @GeneratedValue
-    private int id;
-    @NotBlank(message = "user name should not be blank")
-    @Size(min = 5, max= 50)
-    private  String name;
+    @GeneratedValue(generator = "uuid2")
+    @GenericGenerator(name = "uuid2", strategy = "uuid2")
+    private UUID id;
+
+    private String name;
+
+    private String email;
 }

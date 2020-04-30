@@ -29,7 +29,7 @@ public class GlobalExceptionHandler {
                             .context(fieldError.getObjectName() + "." +
                                     fieldError.getField() + " : rejected value is : " + fieldError.getRejectedValue()
                             )
-                            .offsetDateTime(OffsetDateTime.now(ZoneOffset.UTC))
+                            .timestamp(OffsetDateTime.now(ZoneOffset.UTC))
                             .build();
                     apiErrorResponses.add(apiErrorResponse);
                 });
@@ -37,3 +37,5 @@ public class GlobalExceptionHandler {
         return ResponseEntity.badRequest().body(new ArrayList<>(apiErrorResponses));
     }
 }
+
+
